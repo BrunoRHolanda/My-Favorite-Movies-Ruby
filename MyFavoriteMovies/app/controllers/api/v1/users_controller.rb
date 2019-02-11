@@ -2,13 +2,7 @@ class Api::V1::UsersController < ApplicationController
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     def index
-        users = User.all
-        render json: users, status: :ok
-    end
-
-    def show
-        user = User.find( params[:id] )
-        render json: user, status: :ok
+        head(:method_not_allowed)
     end
 
     def create 
@@ -17,12 +11,25 @@ class Api::V1::UsersController < ApplicationController
         render json: user, status: :ok if user.save
     end
 
+    def show
+        user = User.find( params[:id] )
+        render json: user, status: :ok
+    end
+
+    def update
+        head(:method_not_allowed)
+    end
+
+    def destroy
+        head(:method_not_allowed)
+    end
+
     protected
 
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit( :sign_up, keys: [ :name, :birthday ])
     end
-    
+
     private
 
     def user_params
