@@ -1,8 +1,9 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
-  def self.up
+  def change
     create_table :users do |t|
       t.string :name
       t.date :birthday
+      t.string :password
 
       t.timestamps
 
@@ -39,12 +40,11 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       # Uncomment below if timestamps were not included in your original model.
       # t.timestamps null: false
     end
-
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
-    end
+
   end
 
   def self.down
