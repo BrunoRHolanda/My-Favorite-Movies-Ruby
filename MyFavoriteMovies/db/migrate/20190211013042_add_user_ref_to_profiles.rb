@@ -3,4 +3,3 @@ class AddUserRefToProfiles < ActiveRecord::Migration[5.2]
     add_reference :profiles, :users, foreign_key: true
   end
 end
- 
