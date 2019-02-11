@@ -15,75 +15,75 @@ vagrant ssh
 #### Na máquina virtual execute
 
 ##### Instalando ruby e rails
-<code>$ cd</code>
-<code>$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv</code>
-<code>$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc</code>
-<code>$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc</code>
-<code>$ exec $SHELL</code>
+$ cd
+$ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+$ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+$ echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+$ exec $SHELL
 
-<code>$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build</code>
-<code>$ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc</code>
-<code>$ exec $SHELL</code>
+$ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+$ echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+$ exec $SHELL
 
-<code>$ rbenv install 2.6.1</code>
-<code>$ rbenv global 2.6.1</code>
-<code>$ ruby -v</code>
+$ rbenv install 2.6.1
+$ rbenv global 2.6.1
+$ ruby -v
 
-<code>$ gem install bundler -v 1.17.2</code>
+$ gem install bundler -v 1.17.2
 
-<code>$ git config --global color.ui true</code>
-<code>$ git config --global user.name "Bruno R. Holanda"</code>
-<code>$ git config --global user.email "brunorodriguesholanda@gmail.com"</code>
+$ git config --global color.ui true
+$ git config --global user.name "Bruno R. Holanda"
+$ git config --global user.email "brunorodriguesholanda@gmail.com"
 
-<code>$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -</code>
-<code>$ sudo apt-get install -y nodejs</code>
-<code>$ gem install rails -v 5.2.2</code>
-<code>$ rbenv rehash</code>
-<code>$ rails -v</code>
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+$ gem install rails -v 5.2.2
+$ rbenv rehash
+$ rails -v
 
 ##### Instalando postgres 9.5
 
-<code>$ sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"</code>
-<code>$ wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -</code>
-<code>$ sudo apt-get update -y</code>
-<code>$ sudo apt-get install postgresql-common -y</code>
-<code>$ sudo apt-get install postgresql-9.5 libpq-dev -y</code>
+$ sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+$ wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
+$ sudo apt-get update -y
+$ sudo apt-get install postgresql-common -y
+$ sudo apt-get install postgresql-9.5 libpq-dev -y
 
 ##### Configurando postgres
 
-<code>$ sudo -u postgres psql template1</code>
-<code>\# ALTER USER postgres with encrypted password '1234';</code>
-<code>\# \q</code>
+$ sudo -u postgres psql template1
+\# ALTER USER postgres with encrypted password '1234';
+\# \q
 
 ##### entretrar nessa pasta e alterar a seguinte linha
 
-<code>$ sudo vim /etc/postgresql/9.5/main/pg_hba.conf</code>
+$ sudo vim /etc/postgresql/9.5/main/pg_hba.conf
 
-<code>change local      all     postgres     peer</code>
+change local      all     postgres     peer
 
 ##### para
 
-<code>change local      all     postgres     md5</code>
+change local      all     postgres     md5
 
 ##### continuando
 
-<code>$ sudo /etc/init.d/postgresql restart</code>
-<code>$ createuser -U postgres -d -e -E -l -P -r -s vagrant</code>
-<code>$ password 1234 all steps</code>
+$ sudo /etc/init.d/postgresql restart
+$ createuser -U postgres -d -e -E -l -P -r -s vagrant
+$ password 1234 all steps
 
 ##### entretrar nessa pasta e alterar a seguinte linha
 
-<code>$ sudo vim /etc/postgresql/9.5/main/pg_hba.conf</code>
+$ sudo vim /etc/postgresql/9.5/main/pg_hba.conf
 
-<code>change local      all     all      peer</code>
+change local      all     all      peer
 
 ##### para
 
-<code>change local      all     all      md5</code>
+change local      all     all      md5
 
 #### ir para a pasta do projeto
 
-<code>$ cd /vagrant/MyFavoriteMovies</code>
-<code>$ bundle install</code>
-<code>$ rake db:create && rake db:migrate</code>
-<code>$ rails server</code>
+$ cd /vagrant/MyFavoriteMovies
+$ bundle install
+$ rake db:create && rake db:migrate
+$ rails server
