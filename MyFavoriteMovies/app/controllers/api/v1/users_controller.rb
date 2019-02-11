@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
     before_action :configure_permitted_parameters, if: :devise_controller?
 
     def index
-        head(:method_not_allowed)
+        head( :method_not_allowed )
     end
 
     def create 
@@ -17,11 +17,11 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def update
-        head(:method_not_allowed)
+        head( :method_not_allowed )
     end
 
     def destroy
-        head(:method_not_allowed)
+        head(:method_not_allowed )
     end
 
     protected
